@@ -216,3 +216,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+docs/delamination_neumann.aux
+docs/delamination_neumann.fdb_latexmk
+docs/delamination_neumann.fls
+docs/delamination_neumann.pdf
+docs/delamination_neumann.synctex.gz

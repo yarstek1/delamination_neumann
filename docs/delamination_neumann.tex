@@ -1,0 +1,477 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{amsmath,amssymb}
+
+\begin{document}
+
+\section*{Волновод с расслоением и жёсткими границами. Падение второй моды}
+
+Рассмотрим бесконечный волновод $-\infty \leq z \leq \infty$, $0 \leq y \leq 2b$.
+
+Пусть из $z = - \infty$ падает вторая собственная мода волновода с жёсткими границами:
+\begin{equation}
+\varphi_{i} = \cos\!\left(\dfrac{\pi y}{2b}\right) e^{i\beta z},
+\qquad
+\beta = \sqrt{k^2 - \left(\dfrac{\pi}{2b}\right)^2}.
+\end{equation}
+Нормальная производная этой моды обращается в нуль на стенках $y = 0$ и $y = 2b$, что согласовано с условиями Неймана на границах волновода. Мода распространяется при $k > \pi/2b$ (в противном случае $\beta$ мнимо и мода является нераспространяющейся); далее считаем это условие выполненным.
+
+\medskip
+\textbf{О корректности постановки.} В жёстком волноводе, в отличие от мягкого, всегда существует распространяющаяся поршневая мода $m=0$ ($\varphi = e^{ikz}$, отрезная частота равна нулю), поэтому <<второй модой>> является именно $\cos(\pi y/2b)e^{i\beta z}$ ($m=1$). Тривиального решения не возникает: падающее поле $\varphi_i$ не удовлетворяет условию Неймана на расслоении $y=c$ (так как $\partial_y \varphi_i |_{y=c} = -\frac{\pi}{2b}\sin\!\left(\frac{\pi c}{2b}\right) e^{i\beta z} \neq 0$ при $c \neq 0, 2b$), следовательно септум возбуждает нетривиальное рассеянное поле. Отметим, что при $c = b$ (расслоение по центру) $\sin(\pi c /2b) = 1$, и рассеяние максимально, а тривиальный случай $\sin(\pi c/2b) = 0$ достигается лишь в выродившихся конфигурациях $c=0$ или $c=2b$.
+
+Полное поле акустического потенциала в волноводе записывается как:
+
+$$ \varphi_t(y, z) = \varphi_i(y, z) + \varphi(y, z)$$
+Считаем, что поле акустического потенциала в волноводе удовлетворяет уравнению Гельмгольца:
+$$ \Delta \varphi_t + k^2 \varphi_t = 0 $$
+Учитывая, что $\varphi_{i}$ удовлетворяет уравнению Гельмгольца (по определению $\beta$), можем сразу отметить, что $\varphi$ также удовлетворяет этому уравнению. Пусть на стенках ($y = 0$ и $y = 2b$) и расслоении ($y = c$) выполняются условия Неймана:
+
+\begin{equation}
+\dfrac{\partial \varphi_t}{\partial y}=0
+\end{equation}
+
+Физически это соответствует акустически жёстким границам.
+
+Здесь и далее считается, что среда обладает исчезающе малым поглощением, т.е. $k$ имеет бесконечно малую положительную мнимую часть ($k \to k + i0$). Это стандартный приём (предельное поглощение), который однозначно определяет обход полюсов и ветвей и обеспечивает конечность всех величин (в частности, множителя $K_+(\beta)$, см. ниже).
+
+Для поиска решения воспользуемся методом Винера-Хопфа. Введем преобразование Фурье:
+
+\begin{equation}
+    \Phi(y, \alpha) = \dfrac{1}{\sqrt{2 \pi}} \int \limits_{- \infty}^{\infty} \varphi(y, z) e^{i \alpha z} d z
+\end{equation}
+
+Применяя преобразование Фурье к уравнению Гельмгольца $\Delta \varphi + k^2 \varphi = 0$ и учитывая условия излучения $ \varphi \rightarrow 0$, $\dfrac{\partial \varphi}{\partial t} \rightarrow 0$ при $ z \rightarrow \pm \infty$ [см. Нобл, \S 1.1], получаем общее решение уравнения для преобразования Фурье:
+
+\begin{gather}
+\Phi(y,\alpha)=A_1(\alpha)e^{-\gamma y}+B_1(\alpha)e^{\gamma y}, \\
+\text{где} \quad \gamma = \sqrt{\alpha^2 - k^2}
+\end{gather}
+
+Выбор ветви $\gamma$ осуществляется так, чтобы $\gamma = -ik$ при $\alpha = 0$, и $\gamma \rightarrow |\alpha|$ при $\alpha \rightarrow \infty$.
+
+Из условия $\dfrac{\partial \varphi_t}{\partial y} = 0$ при $y =\, 2b$ следует $\ \Phi'(2b,\alpha) = 0 $, где штрих обозначает производную по $y$.
+
+Это утверждение корректно, так как $\partial_y \varphi_i = -\frac{\pi}{2b}\sin\!\left(\frac{\pi y}{2b}\right)e^{i\beta z} = 0$ на стенках $y=0$ и $y=2b$, поэтому $\partial_y\varphi = \partial_y\varphi_t - \partial_y\varphi_i = 0$ на стенке, и его преобразование Фурье $\Phi'(2b, \alpha) = 0$.
+
+Отсюда получаем:
+
+\begin{equation}
+-\gamma A_1e^{-2\gamma b} + \gamma B_1 e^{2\gamma b} = 0,
+\end{equation}
+
+откуда
+
+\[
+A_1=B_1e^{4\gamma b}.
+\]
+
+Следовательно,
+
+\begin{multline}
+\Phi(y,\alpha)
+=
+B_1e^{4\gamma b}e^{-\gamma y}
++B_1e^{\gamma y}
+=
+B_1e^{2\gamma b}
+\left[
+e^{\gamma(2b-y)}
++e^{-\gamma(2b-y)}
+\right] =
+\\
+=
+2B_1e^{2\gamma b}
+\cosh\gamma(2b-y).
+\end{multline}
+
+Вводя обозначение $B(\alpha) = 2B_1(\alpha)e^{2\gamma b}$, получим для области $c \leq y \leq 2b$:
+
+\begin{equation}
+\boxed{
+\Phi(y,\alpha)=
+B(\alpha)\cosh\gamma(2b-y),
+\qquad
+c\le y\le 2b.
+}
+\end{equation}
+
+Аналогично, используя условие $\partial_y\varphi_t = 0$ при $y = 0$, получим для области $0 \leq y \leq c$
+
+\begin{equation}
+\boxed{
+\Phi(y,\alpha)=
+A(\alpha)\cosh\gamma y,
+\qquad
+0\le y\le c.
+}
+\end{equation}
+
+Введем обозначения
+
+\begin{gather}
+\Phi_+(y, \alpha) = \dfrac{1}{\sqrt{2 \pi}} \int \limits_{0}^{\infty} \varphi(y, z) e^{i \alpha z} d z,
+    \\
+\Phi_-(y, \alpha) = \dfrac{1}{\sqrt{2 \pi}} \int \limits_{- \infty}^{0} \varphi(y, z) e^{i \alpha z} d z.
+\end{gather}
+
+В отличие от задачи Дирихле, где известным на полуоси $z>0$ было само поле, здесь на полосе $y = c$ при $z > 0$ известна нормальная производная. Найдем значение $\Phi'_+(y, \alpha)$ на полосе $y=c$. Так как при $z>0$ на септуме выполнено $\partial_y \varphi_t(c, z) = 0$, то $\partial_y\varphi(c,z) = -\partial_y\varphi_i(c,z) = \frac{\pi}{2b}\sin\!\left(\frac{\pi c}{2b}\right)e^{i\beta z}$, откуда
+
+\begin{multline}
+\Phi'_+(c,\alpha) = \dfrac{1}{\sqrt{2 \pi}} \int \limits_{0}^{\infty} [\partial_y\varphi_t(c, z) - \partial_y\varphi_i(c, z)] e^{i \alpha z} d z = \\ = \dfrac{\frac{\pi}{2b}\sin\!\left(\frac{\pi c}{2b}\right)}{\sqrt{2 \pi}} \int \limits_{0}^{\infty} e^{i(\alpha + \beta) z}\, dz = \dfrac{i}{\sqrt{2\pi}}\, \dfrac{\frac{\pi}{2b}\sin\!\left(\frac{\pi c}{2b}\right)}{\alpha+\beta}.
+\end{multline}
+
+Здесь и далее используется, что $\int_0^\infty e^{i(\alpha+\beta)z}dz = \dfrac{i}{\alpha+\beta}$ при $\mathbf{Im}(\alpha+\beta) > 0$.
+
+Обозначим для краткости
+
+\begin{equation}
+\sigma = \frac{i}{\sqrt{2\pi}}\,\dfrac{\pi}{2b}\sin\!\left(\dfrac{\pi c}{2b}\right),
+\qquad
+J(\alpha)=
+\frac{\sigma}{\alpha+\beta}.
+\end{equation}
+
+Исходя из вышеизложенного на полосе $y = c$ выполняются следующие соотношения (штрих --- производная по $y$):
+
+\begin{align}
+J(\alpha) &+ \Phi'_-(c-0) = \gamma A(\alpha)\sinh\gamma c, \label{A_cond} \\
+J(\alpha) &+ \Phi'_-(c+0) = -\gamma B(\alpha)\sinh\gamma(2b-c), \label{B_cond} \\
+\Phi_-(c) &+ \Phi_+(c\mp 0) = A(\alpha)\cosh\gamma c \ \ \text{или}\ \ B(\alpha)\cosh\gamma(2b-c).
+\end{align}
+
+Здесь $\Phi'_{\pm}(c) = \dfrac{\partial \Phi_{\pm}}{\partial y} \Bigg|_{y = c}$. Так как при $z<0$ септума нет, поле и его производная непрерывны при $y=c$, поэтому $\Phi'_-(c-0) = \Phi'_-(c+0) \equiv \Phi'_-(c)$.
+
+Аналогично Ноблу, введём функцию $D_+$, равную скачку $\Phi_+$ на полосе $y = c$:
+\begin{equation}
+D_+=
+\Phi_+(c+0)-\Phi_+(c-0)
+=
+B\cosh\gamma(2b-c)
+-
+A\cosh\gamma c. \label{D_plus}
+\end{equation}
+
+Выражая $A$ и $B$ из [\ref{A_cond}] и [\ref{B_cond}],
+
+\[
+A=
+\frac{\Phi'_-(c)+J(\alpha)}
+{\gamma\sinh\gamma c},
+\]
+
+\[
+B=
+-\frac{\Phi'_-(c)+J(\alpha)}
+{\gamma\sinh\gamma(2b-c)},
+\]
+
+и подставляя их в [\ref{D_plus}], получаем:
+
+\begin{align*}
+D_+
+&=
+-\frac{\Phi'_-(c)+J(\alpha)}{\gamma}
+\left[
+\frac{\cosh\gamma(2b-c)}
+{\sinh\gamma(2b-c)}
++
+\frac{\cosh\gamma c}
+{\sinh\gamma c}
+\right]
+\\
+&=
+-\frac{\Phi'_-(c)+J(\alpha)}{\gamma}
+\frac{
+\cosh\gamma(2b-c)\sinh\gamma c
++
+\cosh\gamma c\sinh\gamma(2b-c)
+}
+{
+\sinh\gamma c\,
+\sinh\gamma(2b-c)
+}
+\\
+&=
+-\frac{\Phi'_-(c)+J(\alpha)}{\gamma}
+\frac{
+\sinh2\gamma b
+}
+{
+\sinh\gamma c\,
+\sinh\gamma(2b-c)
+}.
+\end{align*}
+
+Обозначим
+
+\[
+2b=a,
+\qquad
+2b-c=d,
+\]
+Для этих соотношений выполняется $a = c+d$.
+
+из выражения для $D_+$ следует
+
+\[
+D_+(\alpha)
+=
+-\frac{a}{cd}\,\dfrac{K(\alpha)}{\gamma^2}
+\left[
+\Phi'_-(c)+J(\alpha)
+\right],
+\qquad
+K(\alpha)
+=
+\frac{cd}{a}\, \frac{\gamma\sinh\gamma a }{\sinh\gamma c\, \sinh\gamma d } = K_+(\alpha)K_-(\alpha).
+\]
+
+Факторизация функции $K(\alpha)$ приведена в [Нобл, задача 3.6]. Приведем в явном виде функцию $K_+(\alpha):$
+
+\begin{gather}
+K_+(\alpha)
+=
+e^{-\chi(\alpha)} \prod_{n=1}^{\infty}
+\dfrac{(1 - k^2a_n^2)^{\frac{1}{2}} - i \alpha a_n}
+{\left[(1- k^2 c_n^2)^{\frac{1}{2}} - i\alpha c_n\right]\, \left[ (1- k^2 d_n^2)^{\frac{1}{2}} - i\alpha d_n \right]}, \\
+\text{Где} \quad \chi(\alpha) = \dfrac{i\alpha}{\pi}(a \ln{a} - c \ln c - d \ln d).
+\end{gather}
+
+Здесь введены обозначения $a_n = \dfrac{a}{\pi n}$, $c_n = \dfrac{c}{\pi n}$, $d_n = \dfrac{d}{\pi n}$. Как и ранее, $K_-(\alpha) = K_+(-\alpha)$.
+
+Тогда, учитывая что $\gamma^2 = (\alpha + k)(\alpha - k)$ и множитель $(\alpha + k)$ регулярен и не имеет нулей в верхней полуплоскости, а $(\alpha - k)$ --- в нижней, получим:
+
+\[
+\frac{cd}{a}\,\dfrac{D_+(\alpha)\cdot (\alpha + k)}{K_+(\alpha)}
+=
+-
+\frac{\Phi'_-(c)+J(\alpha)}{\alpha - k} \cdot K_-(\alpha),
+\]
+
+то есть
+
+\[
+\frac{cd}{a}\,\dfrac{D_+(\alpha)\cdot (\alpha + k)}{K_+(\alpha)}
+=
+-
+\dfrac{K_-(\alpha)}{\alpha - k} \cdot \dfrac{\sigma}{\alpha + \beta}
+-
+\frac{K_-(\alpha)}{\alpha - k} \Phi`_-(c).
+\]
+
+Разобьём первое слагаемое правой части на сумму функций, регулярных в верхней и нижней полуплоскостях соответственно:
+
+\[
+\dfrac{\sigma}{\alpha + \beta} \frac{K_-(\alpha)}{\alpha - k}
+=
+J_+(\alpha)
++
+J_-(\alpha),
+\]
+
+где
+
+\[
+J_-(\alpha)
+=
+\frac{\sigma}
+{\alpha+\beta}
+\left[
+\frac{K_-(\alpha)}{\alpha - k}-\frac{K_-(-\beta)}{- \beta - k}
+\right],
+\]
+
+\[
+J_+(\alpha)
+=
+\frac{\sigma}
+{(\alpha+\beta)}\,\dfrac{K_-(-\beta)}{(- \beta - k)}.
+\]
+
+Слагаемое $J_+(\alpha)$ получено стандартным способом <<вычитания полюса>>: в точке $\alpha = -\beta$ одновременно обращаются в нуль знаменатель и выражение в скобках, в результате чего в точке получается конечный предел и функция становится регулярной.
+
+Получаем уравнение Винера--Хопфа
+
+\begin{equation}
+\dfrac{cd}{a}
+\dfrac{D_+(\alpha)}{K_+(\alpha)}
++
+J_+(\alpha)
+=
+-
+\frac{K_-(\alpha) }{\alpha-k} \Phi'_-(c)
+-
+J_-(\alpha).
+\end{equation}
+
+Левая часть регулярна в верхней полуплоскости $\textbf{Im}(\alpha) > -\textbf{Im}(k)$, правая --- в нижней $\textbf{Im}(\alpha) < \textbf{Im}(k)$; области регулярности перекрываются в полосе $-\textbf{Im}(k) < \textbf{Im}(\alpha) < \textbf{Im}(k)$.
+
+По теореме Лиувилля, левая часть = правая часть = 0, следовательно:
+
+\begin{equation}
+\frac{K_-(\alpha)}{\alpha - k}\Phi'_-(c)
++
+\dfrac{\sigma}
+{\alpha+\beta} \left[ \dfrac{K_-(\alpha)}{\alpha - k} - \dfrac{K_-(-\beta)}{-\beta - k} \right]
+=
+0.
+\end{equation}
+
+Отсюда
+
+\begin{multline*}
+\Phi'_-(c)
+=
+-\dfrac{\alpha - k}{K_-(\alpha)}\cdot\dfrac{\sigma}{\alpha + \beta}\left[ \dfrac{K_-(\alpha)}{\alpha - k} - \dfrac{K_-(-\beta)}{- \beta - k} \right] = \\ 
+= - \dfrac{\sigma}{\alpha + \beta} + \dfrac{\sigma}{\alpha + \beta} \cdot \dfrac{\alpha - k}{K_-(\alpha)}\cdot \dfrac{K_-(-\beta)}{-\beta - k}
+\end{multline*}
+
+Используя
+
+\[
+\gamma A(\alpha)\sinh\gamma c
+=
+-\gamma B(\alpha)\sinh[\gamma(2b-c)]
+=
+\Phi'_-(c)+J(\alpha),
+\]
+
+получаем
+
+\begin{equation}
+\gamma A(\alpha)\sinh\gamma c =
+-\gamma B(\alpha)\sinh[\gamma(2b-c)]
+=\dfrac{\sigma}{\alpha + \beta} \, \dfrac{\alpha - k}{K_-(\alpha)} \,\dfrac{K_-(-\beta)}{- \beta - k}
+\end{equation}
+
+Запишем в явном виде:
+
+\begin{equation}
+\boxed{
+    A(\alpha) = \dfrac{1}{\gamma \sinh{\gamma c}}\,\dfrac{\sigma}{\alpha + \beta}\,\dfrac{\alpha - k}{K_-(\alpha)}\,\dfrac{K_-(-\beta)}{- \beta - k}
+    }
+    \label{A1}
+\end{equation}
+\begin{equation}
+\boxed{
+    B(\alpha) = - \dfrac{1}{\gamma \sinh{\gamma d}}\,\dfrac{\sigma}{\alpha + \beta}\,\dfrac{\alpha - k}{K_-(\alpha)}\,\dfrac{K_-(-\beta)}{- \beta - k}
+    }
+    \label{B1}
+\end{equation}
+
+Для вычислений в верхней полуплоскости преобразуем это выражение, воспользовавшись
+
+\[
+K_-(\alpha) = \dfrac{K(\alpha)}{K_+(\alpha)}=\dfrac{cd}{a} \dfrac{\gamma \sinh(\gamma a)}{\sinh(\gamma c) \sinh (\gamma d) K_+(\alpha)}.
+\]
+
+Подставляя, получаем:
+
+\begin{equation}
+\boxed{
+A(\alpha) = \dfrac{\sigma}{\alpha + \beta} \cdot \dfrac{(\alpha - k) K_+(\alpha)}{-\beta - k} \cdot \dfrac{K_+(\beta)}{\gamma^2}\cdot\dfrac{a}{cd} \cdot \dfrac{\sinh{\gamma d}}{\sinh{\gamma a}}
+} \label{A2}
+\end{equation}
+
+\begin{equation}
+\boxed{
+B(\alpha) = - \dfrac{\sigma}{\alpha + \beta} \cdot \dfrac{(\alpha - k) K_+(\alpha)}{-\beta - k} \cdot \dfrac{K_+(\beta)}{\gamma^2}\cdot\dfrac{a}{cd} \cdot \dfrac{\sinh{\gamma c}}{\sinh{\gamma a}}
+} \label{B2}
+\end{equation}
+
+Таким образом мы получили по два представления для функций $A(\alpha)$ и $B(\alpha)$. Выражения \ref{A1} и \ref{B1} удобны для вычислений в нижней полуплоскости, а \ref{A2} и \ref{B2} --- в верхней.
+
+Выполним обратное преобразование Фурье:
+
+\begin{align}
+\varphi_t &= \cos\!\left(\dfrac{\pi y}{2b}\right)e^{i\beta z} + \dfrac{1}{\sqrt{2\pi}} \int \limits_{-\infty + i\varsigma}^{\infty+ i\varsigma} A(\alpha) \cosh{\gamma y} \ e^{-i\alpha z} d \alpha, &0 \leq y \leq c, \label{rev_fourier_1}\\
+\varphi_t &= \cos\!\left(\dfrac{\pi y}{2b}\right)e^{i\beta z} + \dfrac{1}{\sqrt{2\pi}} \int \limits_{-\infty + i\varsigma}^{\infty+ i\varsigma} B(\alpha) \cosh{[\gamma(2b - y)]} \ e^{-i\alpha z} d \alpha, &c \leq y \leq 2b
+\end{align}
+
+Где линия интегрирования $\varsigma$ лежит в полосе регулярности.
+
+Для $z > 0$ замыкаем контур в нижней полуплоскости и берем для $A(\alpha)$ и $B(\alpha)$ первые выражения из обведенных формул. Для $z<0$, напротив, замыкаем контур в верхней полуплоскости и берем вторые выражения.
+
+\subsection*{Область $z<0$}
+
+Вычислим интеграл для области $z<0$. Подставляя \ref{A2} и вынося за знак интеграла все множители, не являющиеся функциями $\alpha$, получаем подынтегральную функцию
+$$ F(\alpha) = \dfrac{K_+(\alpha)\cosh(\gamma y) \sinh[\gamma (2b-c)] }{(\alpha + \beta)\,(\alpha + k)\,\sinh{2\gamma b}} e^{-i\alpha z}$$
+
+Замкнем контур интегрирования полуокружностью в верхней полуплоскости. Так как обход производится против часовой стрелки, то справедливо выражение:
+
+\begin{equation}
+     \oint F(\alpha) d \alpha = 2 \pi i \sum_n \textbf{res}[F(\alpha), \alpha_n]
+\end{equation}
+
+Где $\alpha_n$ --- особые точки функции $F(\alpha)$, попадающие в контур интегрирования. Особые точки всех подынтегральных функций являются полюсами первого порядка или устранимыми особенностями.
+
+В области $z<0$ полное поле есть сумма падающей моды и суперпозиции собственных мод полного волновода (условия Неймана на $y=0$ и $y=2b$), т.е. полюса определяются уравнением $\sinh 2\gamma b = 0$:
+
+\begin{gather}
+    \gamma_m = \gamma(\alpha_m) = \dfrac{\pi m}{2 i b}; \\
+    \alpha_m = \sqrt{k^2 - \dfrac{\pi^2 m^2}{4 b^2}}
+\end{gather}
+
+Если $k < \dfrac{\pi m}{2b}$, то под корнем получается отрицательное выражение, и
+
+\begin{gather}
+    \alpha_m = +i\sqrt{ \dfrac{\pi^2 m^2}{4 b^2} - k^2}.
+\end{gather}
+
+Выбор знака <<+>> обусловлен тем, чтобы полюса лежали в верхней полуплоскости и попадали в контур.
+
+Отметим, что при $m=0$ имеем $\gamma_0 = 0$, $\alpha_0 = k$ --- это поршневая мода, которая в задаче Неймана присутствует всегда. При $m=1$ имеем $\alpha_1 = \sqrt{k^2 - (\pi/2b)^2} = \beta$, т.е. полюс $\alpha_1$ совпадает с полюсом падающей моды $\alpha = +\beta$.
+
+Отметим также, что $$\dfrac{d\gamma}{d\alpha} = \dfrac{\alpha}{\gamma}.$$
+
+Также полезными являются соотношения:
+
+\begin{align}
+    \sinh{\gamma_m[2b - c]} &= (-1)^m i \sin{\dfrac{\pi m c}{2 b}} \\
+    \cosh{\gamma_m[2b - y]} &= (-1)^m \cos{\dfrac{\pi m y}{2 b}} \\
+    \sinh{\gamma_m c} &= -i \sin{\dfrac{\pi m c}{2 b}}\\
+     \cosh{\gamma_m y} &= \cos{\dfrac{\pi m y}{2 b}} 
+\end{align}
+
+Рассмотрим особые точки по отдельности. Точка $\alpha = -\beta$ не попадает в контур и не вносит вклад.
+
+Для нахождения вычетов в точках $\alpha = \alpha_m$ воспользуемся разложением гиперболического синуса в ряд Тейлора в окрестности точки $\alpha_m$:
+
+\begin{multline}
+    \sinh 2\gamma b \approx (\alpha - \alpha_m) \cdot 2b \cosh (2 \gamma_m b) \cdot \dfrac{d\gamma}{d\alpha} \Bigg|_{\alpha=\alpha_m} = \\ = (\alpha - \alpha_m) \cdot 2b  \cos(\pi m) \cdot \dfrac{\alpha_m}{\gamma_m} =  \boxed{(\alpha - \alpha_m) \cdot 2b (-1)^m \dfrac{\alpha_m}{\gamma_m}} \label{sinh}
+\end{multline}
+
+Пользуясь вышеизложенным, вычисляем вычеты:
+
+\begin{multline}
+    \textbf{res}[F(\alpha), \alpha_m] = \lim_{\alpha \to \alpha_m} \dfrac{K_+(\alpha)(\alpha - \alpha_m) \sinh{\gamma[2b - c]} \cosh{\gamma y}}{(\alpha + \beta)(\alpha + k)\sinh{2\gamma b}}e^{-i \alpha_m z} = \\ = \lim_{\alpha \to \alpha_m} \dfrac{K_+(\alpha) \sinh{\gamma[2b - c]}  \cosh{\gamma y}\, \gamma_m}{(\alpha + \beta)(\alpha + k)\ 2b\ (-1^m)\, \alpha_m} e^{-i \alpha_m z} = \dfrac{K_+(\alpha_m])}{\alpha_m + \beta}\cdot \dfrac{i \sin{\dfrac{\pi m c}{2b}} \ \cos{\dfrac{\pi m y}{2b}} \gamma_m}{2b \cdot (\alpha_m + k) \alpha_m}
+\end{multline}
+
+Отсюда получаем рассеянное поле в области $z<0$ во всей области $0\le y\le 2b$:
+
+\begin{equation}
+    \label{phi_z_minus}
+    \varphi(y,z) =  \dfrac{i \pi \ K_+(\beta) \sin{\dfrac{\pi c}{2b}}}{2b (\beta + k) [c\,(2b - c)]} \sum \limits_{m} \dfrac{\cos\left(\dfrac{\pi m y}{2b}\right)\sin\left(\dfrac{\pi m c}{2b}\right)\, \gamma_m}{(\alpha_m +k)(\alpha_m + \beta) \alpha_m}
+\end{equation}
+
+Вычисляя вычеты для области $c \leq y \leq 2b$, получаем, что поле в этой области описывается таким же выражением. Таким образом, выражение \ref{phi_z_minus} описывает поле в области $z < 0$.
+
+\subsection*{Область $z>0$}
+
+Перейдем к вычислению поля в области $z > 0$. Начнем с области $0 \leq y \leq c$.
+
+Выражая $A(\alpha)$ через первое выражение \ref{A1} и подставляя в уравнение \ref{rev_fourier_1}, обозначим подынтегральное выражение как
+$$
+G(\alpha) = \dfrac{(\alpha - k) \cosh \gamma y}{\gamma \sinh(\gamma c) (\alpha + \beta) K_-(\alpha)} e^{-i\alpha z}
+$$
+
+Замыкаем контур интегрирования в нижней полуплоскости (обход по часовой стрелке):
+
+\begin{equation}
+     \oint G(\alpha) d \alpha = - 2 \pi i \sum_n \textbf{res}[G(\alpha), \alpha_n]
+\end{equation}
+
+\end{document}
